@@ -19,7 +19,8 @@ const config: Config = {
       fontFamily: {
         impact: "Impact",
         rubik: "Rubik, sans-serif",
-        numans: 'Numans, sans-serif'
+        numans: 'Numans, sans-serif',
+        roboto: 'Roboto, sans-serif'
       },
     },
   },

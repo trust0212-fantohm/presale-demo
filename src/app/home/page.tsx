@@ -67,10 +67,10 @@ export default function Homepage() {
 				)}
 			</button>
 			<div className="pb-20 pr-10 md:flex md:flex-col md:items-end sm:pb-[10vh] sm:pr-0">
-				<p className="font-numans text-5xl font-medium text-white drop-shadow-[2px_2px_#0004] md:w-64 md:text-right md:font-impact md:text-[40px] md:font-medium md:text-black md:backdrop-blur-sm sm:absolute sm:top-44 sm:leading-tight">
+				<p className="font-roboto text-5xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:w-64 md:text-right md:font-impact md:text-[40px] md:text-black md:backdrop-blur-sm md:drop-shadow-none sm:absolute sm:top-44 sm:leading-tight">
 					Get rugged in a new way
 				</p>
-				<p className="pl-20 font-numans text-3xl font-medium text-white drop-shadow-[2px_2px_#0004] md:mt-5 md:w-52 md:bg-white md:pl-2 md:text-right md:font-impact md:text-2xl md:text-black sm:absolute sm:top-64 sm:text-2xl">
+				<p className="font-roboto pl-20 text-3xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:mt-5 md:w-52 md:bg-white md:pl-2 md:text-right md:font-impact md:text-2xl md:text-black sm:absolute md:drop-shadow-none sm:top-64 sm:text-2xl">
 					Send payment here to join presale
 				</p>
 				<div
