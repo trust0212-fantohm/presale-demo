@@ -74,7 +74,7 @@ export default function Homepage() {
           Send payment here to join presale
         </p>
         <div
-          className="rounded-full border-2 border-blue-500 bg-white flex py-2 items-center px-5 gap-5 w-fit cursor-pointer sm:py-8 md:mt-[10vh] mt-3 sm:absolute sm:top-80"
+          className="rounded-full border-2 border-blue-500 bg-white flex py-2 items-center px-5 gap-5 w-fit cursor-pointer sm:py-8 md:mt-[10vh] mt-3 sm:absolute sm:top-80 sm:left-1/2 sm:-translate-x-1/2 sm:w-[calc(100vw-40px)]"
           title="Click to copy the address"
           onClick={handleCopyAddress}
         >
@@ -86,7 +86,7 @@ export default function Homepage() {
             className="md:w-10 md:h-16 flex-shrink-0"
           />
           <p
-            className="text-3xl md:text-2xl sm:text-2xl"
+            className="text-3xl md:text-2xl sm:text-xl"
             style={{ wordBreak: "break-all" }}
           >
             0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
