@@ -17,8 +17,9 @@ const config: Config = {
     extend: {
       backgroundImage: {},
       fontFamily: {
-        impact: "Impact, sans-serif",
-        rubik: "Rubik",
+        impact: "Impact",
+        rubik: "Rubik, sans-serif",
+        numans: 'Numans, sans-serif'
       },
     },
   },

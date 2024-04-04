@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Rubik, Numans } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,6 +12,8 @@ const rubik = Rubik({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
+const numans = Numans({ subsets: ["latin"], weight: ["400"] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rubik.className}>
+      <body className={rubik.className + " " + numans.className}>
         <div className="font-impact"> {children}</div>
       </body>
     </html>
