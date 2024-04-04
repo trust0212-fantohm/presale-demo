@@ -6,6 +6,11 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+@font-face {
+  font-family: Impact;
+  src: url('/fonts/impact.ttf');
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

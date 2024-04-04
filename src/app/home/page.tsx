@@ -28,15 +28,18 @@ export default function Homepage() {
 
   return (
     <div
-      className="w-full h-screen relative flex items-end justify-end bg-bottom p-5 flex-col bg-cover"
-      style={{ backgroundImage: "url(/SBF_Background_Image.png)" }}
+      className="w-full h-screen relative flex items-end justify-end bg-bottom p-5 flex-col bg-cover bg-[#c2ffff]"
+      style={{
+        backgroundImage: "url(/SBF_Background_Image.png)",
+        backgroundPositionX: "40%",
+      }}
     >
       <Image
         src="/Blue Multi-Line Logo.png"
         alt="Smoke"
         width={985}
         height={556}
-        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4"
+        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 sm:w-[800px]"
       />
       <button
         className="absolute top-16 right-16 sm:top-7 sm:right-7 z-10"
@@ -63,15 +66,15 @@ export default function Homepage() {
           </svg>
         )}
       </button>
-      <div className="pb-20 pr-10 md:flex md:flex-col md:items-end sm:pr-0">
-        <p className="text-5xl font-bold md:text-4xl sm:text-3xl md:w-64 md:text-right md:backdrop-blur-sm">
+      <div className="pb-20 pr-10 md:flex md:flex-col md:items-end sm:pb-[10vh] sm:pr-0">
+        <p className="text-5xl font-bold md:text-[40px] md:w-52 md:text-right md:backdrop-blur-sm sm:absolute sm:top-44 sm:leading-tight">
           Get rugged in a new way
         </p>
-        <p className="text-3xl font-bold pl-20 md:text-xl sm:text-xl md:w-52 md:pl-2 mt-3 md:text-right md:bg-white md:mt-[10vh]">
+        <p className="text-3xl font-bold pl-20 md:text-2xl sm:text-2xl md:w-52 md:pl-2 mt-3 md:text-right md:bg-white md:mt-5 sm:absolute sm:top-64">
           Send payment here to join presale
         </p>
         <div
-          className="rounded-full border-2 border-blue-500 bg-white flex py-2 items-center px-5 gap-5 w-fit cursor-pointer md:mt-[10vh] mt-3"
+          className="rounded-full border-2 border-blue-500 bg-white flex py-2 items-center px-5 gap-5 w-fit cursor-pointer sm:py-8 md:mt-[10vh] mt-3 sm:absolute sm:top-80"
           title="Click to copy the address"
           onClick={handleCopyAddress}
         >
@@ -83,22 +86,22 @@ export default function Homepage() {
             className="md:w-10 md:h-16 flex-shrink-0"
           />
           <p
-            className="text-3xl font-bold md:text-2xl sm:text-base"
+            className="text-3xl md:text-2xl sm:text-2xl"
             style={{ wordBreak: "break-all" }}
           >
             0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
           </p>
         </div>
       </div>
-      <div className="flex items-center bg-[#eed0aef0] rounded-[5px] gap-4 p-2 shadow-[0px_1px_4px_#000A] sm:flex-col-reverse sm:gap-2">
+      <div className="flex items-center bg-[#eed0aef0] rounded-[5px] gap-4 p-2 shadow-[0px_1px_4px_#000A] sm:flex-col-reverse sm:gap-2 sm:mx-auto">
         <div className="flex flex-col">
           <Link
             href="mailto:contact@broswifwoes.io"
-            className="font-bold text-right sm:text-center sm:text-sm xs:text-xs"
+            className="text-right sm:text-center sm:text-sm xs:text-xs font-medium tracking-widest"
           >
             CONTACT@BROSWIFWOES.IO
           </Link>
-          <p className="font-bold text-right sm:text-sm xs:text-xs">
+          <p className="text-right sm:text-sm xs:text-xs font-medium tracking-widest">
             &copy;BROSWIFWOES 2024 ALL RIGHTS RESERVED
           </p>
         </div>

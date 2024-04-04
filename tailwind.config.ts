@@ -16,6 +16,10 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {},
+      fontFamily: {
+        impact: "Impact, sans-serif",
+        rubik: "Rubik",
+      },
     },
   },
   plugins: [],
