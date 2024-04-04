@@ -70,7 +70,7 @@ export default function Homepage() {
 				<p className="font-norwester text-5xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:w-64 md:text-right md:text-[40px] sm:absolute sm:top-44 sm:leading-none">
 					Get rugged in a new way
 				</p>
-				<p className="font-norwester pl-20 text-3xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:mt-5 md:w-52 md:bg-white md:pl-2 md:text-right md:text-2xl md:text-black md:drop-shadow-none sm:absolute sm:top-64 sm:text-2xl">
+				<p className="font-norwester pl-20 text-3xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:mt-5 md:w-[216px] md:text-center md:p-2 md:text-2xl md:text-black md:bg-white md:border-2 md:border-blue-500 md:font-medium sm:absolute sm:top-64 sm:text-2xl">
 					Send payment here to join presale
 				</p>
 				<div
@@ -115,7 +115,7 @@ export default function Homepage() {
 							className="sm:h-8 sm:w-8"
 						/>
 					</Link>
-					<Link href="http://twitter.com" target="-blank">
+					<Link href="https://twitter.com/BrosWifWoes" target="-blank">
 						<Image
 							src="/twitter.webp"
 							alt="Twitter"
