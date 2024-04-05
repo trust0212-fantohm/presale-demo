@@ -85,7 +85,7 @@ export default function Homepage() {
             onClick={handleCopyAddress}
           >
             <Image
-              src='/solana.png'
+              src='/solana-1.png'
               alt='Solana'
               width={39}
               height={39}
