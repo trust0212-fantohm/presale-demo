@@ -2,22 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: Norwester;
+	src: url("/fonts/norwester.otf");
+  font-weight: 400;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-}
-
-@font-face {
-  font-family: Impact;
-  src: url('/fonts/impact.ttf');
-}
-
-@font-face {
-  font-family: Norwester;
-  src: url('/fonts/norwester.otf');
+	font-family: "Norwester";
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }

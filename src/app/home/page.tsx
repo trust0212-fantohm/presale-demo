@@ -1,131 +1,140 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import cx from 'classnames';
+import PlayButton from '@/components/PlayButton';
+import { settings } from '@/config/background';
+import { workSans } from '../fonts';
 
 export default function Homepage() {
-	const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-	const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [random, setRandom] = useState<number>(-1);
 
-	useEffect(() => {
-		setAudio(new Audio("/music.mp3"));
-	}, []);
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * 12) + 1);
+  }, []);
 
-	useEffect(() => {
-		if (!audio) return;
-		if (isPlaying) {
-			audio.play();
-		} else {
-			audio.pause();
-		}
-	}, [isPlaying, audio]);
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(
+      'EKJDzQGRTrGnv5nHxYmxSthRg3ucTJKszP3ZDkGGDWUo',
+    );
+    alert('Address copied to clip board');
+  };
 
-	const handleCopyAddress = () => {
-		navigator.clipboard.writeText("0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232");
-		alert("Address copied to clip board");
-	};
-
-	return (
-		<div
-			className="relative flex h-screen w-full flex-col items-end justify-end bg-[#c2ffff] bg-cover bg-bottom p-5"
-			style={{
-				backgroundImage: "url(/SBF_Background_Image.png)",
-				backgroundPositionX: "40%",
-			}}
-		>
-			<Image
-				src="/Blue Multi-Line Logo.png"
-				alt="Smoke"
-				width={985}
-				height={556}
-				className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 sm:w-[800px]"
-			/>
-			<button
-				className="absolute right-16 top-16 z-10 sm:right-7 sm:top-7"
-				onClick={() => setIsPlaying((prev) => !prev)}
-			>
-				{!isPlaying ? (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 42 47"
-						className="h-14 w-14 sm:h-7 sm:w-7"
-					>
-						<path fill="#1A6AFF" d="M0 47V0l42 23.5z"></path>
-					</svg>
-				) : (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 29 38"
-						className="h-14 w-14 sm:h-7 sm:w-7"
-					>
-						<path
-							fill="#1A6AFF"
-							d="M18.869 38H29V0H18.869v38zM0 38h10.131V0H0v38z"
-						></path>
-					</svg>
-				)}
-			</button>
-			<div className="pb-20 pr-10 md:flex md:flex-col md:items-end sm:pb-[10vh] sm:pr-0">
-				<p className="font-norwester text-5xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:w-64 md:text-right md:text-[40px] sm:absolute sm:top-44 sm:leading-none">
-					Get rugged in a new way
-				</p>
-				<p className="font-norwester pl-20 text-3xl font-bold text-white drop-shadow-[0px_4px_4px_#000] md:mt-5 md:w-[216px] md:text-center md:p-2 md:text-2xl md:text-black md:bg-white md:border-2 md:border-blue-500 md:font-medium sm:absolute sm:top-64 sm:text-2xl">
-					Send payment here to join presale
-				</p>
-				<div
-					className="mt-3 flex w-fit cursor-pointer items-center gap-5 rounded-full border-2 border-blue-500 bg-white px-5 py-2 md:mt-[10vh] sm:absolute sm:left-1/2 sm:top-80 sm:w-[calc(100vw-40px)] sm:-translate-x-1/2 sm:py-8"
-					title="Click to copy the address"
-					onClick={handleCopyAddress}
-				>
-					<Image
-						src="/Ethereum Logo .png"
-						alt="Ethereum"
-						width={25}
-						height={40}
-						className="flex-shrink-0 md:h-16 md:w-10"
-					/>
-					<p
-						className="text-3xl md:text-2xl sm:text-xl"
-						style={{ wordBreak: "break-all" }}
-					>
-						0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
-					</p>
-				</div>
-			</div>
-			<div className="flex items-center gap-4 rounded-[5px] bg-[#eed0aef0] p-2 shadow-[0px_1px_4px_#000A] sm:mx-auto sm:flex-col-reverse sm:gap-2">
-				<div className="flex flex-col">
-					<Link
-						href="mailto:contact@broswifwoes.io"
-						className="text-right font-medium tracking-widest sm:text-center sm:text-sm xs:text-xs"
-					>
-						CONTACT@BROSWIFWOES.IO
-					</Link>
-					<p className="text-right font-medium tracking-widest sm:text-sm xs:text-xs">
-						&copy;BROSWIFWOES 2024 ALL RIGHTS RESERVED
-					</p>
-				</div>
-				<div className="flex gap-6">
-					<Link href="http://t.me/broswifwoes" target="_blank">
-						<Image
-							src="/telegram.webp"
-							alt="Telegram"
-							width={52}
-							height={52}
-							className="sm:h-8 sm:w-8"
-						/>
-					</Link>
-					<Link href="https://twitter.com/BrosWifWoes" target="-blank">
-						<Image
-							src="/twitter.webp"
-							alt="Twitter"
-							width={52}
-							height={52}
-							className="sm:h-8 sm:w-8"
-						/>
-					</Link>
-				</div>
-			</div>
-		</div>
-	);
+  return random === -1 ? (
+    <></>
+  ) : (
+    <div
+      className={cx(
+        'relative flex h-screen w-full flex-col items-end justify-center bg-[#c2ffff] bg-cover bg-bottom p-12 sm:px-6',
+        settings[random].cardPosForTable === 'bottom-right'
+          ? 'md:justify-end'
+          : settings[random].cardPosForTable === 'bottom-left'
+            ? 'md:items-start md:justify-end'
+            : 'md:items-start md:justify-start',
+        settings[random].cardPosForMobile === 'bottom'
+          ? 'sm:items-center sm:justify-end'
+          : 'sm:items-center sm:justify-start',
+      )}
+    >
+      <div
+        className='fixed inset-0 bg-cover md:hidden'
+        style={{
+          backgroundImage: `url(/background/pc/${random}.png)`,
+        }}
+      />
+      <div
+        className='fixed inset-0 hidden bg-cover md:block sm:hidden'
+        style={{
+          backgroundImage: `url(/background/tablet/${random}.png)`,
+        }}
+      />
+      <div
+        className='fixed inset-0 hidden bg-cover sm:block'
+        style={{
+          backgroundImage: `url(/background/mobile/${random}.png)`,
+        }}
+      />
+      <PlayButton className='absolute right-8 top-5 z-20 sm:right-1/2 sm:translate-x-1/2' />
+      <Image
+        src='/BWWLong.png'
+        alt='BWW'
+        width={821}
+        height={574}
+        className='relative z-10 -mt-20 md:-mt-16 md:h-[372px] md:w-[526px] sm:-mt-4 sm:h-[220px] sm:w-[310px]'
+      />
+      <div className='relative z-10 -mt-48 w-fit space-y-[30px] rounded border-4 border-black bg-[#EED0AECC] p-5 shadow-[0px_0px_10px_#0003] md:-mt-28 md:space-y-5 sm:-mt-16 sm:w-[278px] sm:space-y-[15px]'>
+        <div className='space-y-5'>
+          <div className='sm:space-y-2.5'>
+            <p className='pl-5 text-center font-norwester text-[70px] leading-[1.2] text-[#030303] md:text-[50px] sm:mx-auto sm:max-w-[168px] sm:pl-0 sm:text-3xl'>
+              GET RUGGED IN A NEW WAY
+            </p>
+            <p
+              className={cx(
+                'text-center text-3xl font-medium leading-[1.2] md:text-xl sm:text-[15px]',
+                workSans.className,
+              )}
+            >
+              Send <span className='text-[#1A6AFF] underline'>$SOL</span> here
+              to join presale
+            </p>
+          </div>
+          <div
+            className='mx-auto flex w-fit cursor-pointer items-center rounded-full border-2 border-[#1A6AFF] bg-white p-2.5'
+            onClick={handleCopyAddress}
+          >
+            <Image
+              src='/solana.png'
+              alt='Solana'
+              width={39}
+              height={39}
+              className='md:h-[25px] md:w-[25px] sm:h-5 sm:w-5'
+            />
+            <p
+              className={cx(
+                'px-5 text-xl font-medium md:pl-2.5 md:text-[15px] sm:hidden',
+                workSans.className,
+              )}
+            >
+              EKJDzQGRTrGnv5nHxYmxSthRg3ucTJKszP3ZDkGGDWUo
+            </p>
+            <p className='hidden pl-2.5 pr-5 text-[13px] font-medium sm:block'>
+              EKJDzQGRTrGnv5n...
+            </p>
+          </div>
+        </div>
+        <div className='space-y-[30px] sm:space-y-[15px]'>
+          <div className='space-y-[5px]'>
+            <p className='text-center text-xl leading-[1.2] text-[#030303] md:text-[15px] sm:text-[13px]'>
+              contact@broswifwoes.io
+            </p>
+            <p className='text-center text-xl leading-[1.2] text-[#030303] md:text-[15px] sm:text-[13px]'>
+              BROSWIFWOES 2024 ALL RIGHTS RESERVED
+            </p>
+          </div>
+          <div className='mx-auto flex w-fit gap-5'>
+            <Link href='http://t.me/broswifwoes' target='_blank'>
+              <Image
+                src='/telegram.webp'
+                alt='Telegram'
+                width={40}
+                height={40}
+                className='md:h-[30px] md:w-[30px]'
+              />
+            </Link>
+            <Link href='https://twitter.com/BrosWifWoes' target='_blank'>
+              <Image
+                src='/twitter.png'
+                alt='Telegram'
+                width={40}
+                height={40}
+                className='md:h-[30px] md:w-[30px]'
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
