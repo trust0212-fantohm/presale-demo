@@ -42,9 +42,9 @@ const PlayButton: React.FC<Props> = ({ className }) => {
       className={cx('flex items-center gap-5', className)}
       onClick={() => setIsPlaying((prev) => !prev)}
     >
-      <p className='font-norwester text-3xl text-[#1A6AFF] sm:text-xl'>
+      {/* <p className='font-norwester text-3xl text-[#1A6AFF] sm:text-xl'>
         PLAY THEME SONG
-      </p>
+      </p> */}
       {!isPlaying ? (
         <svg
           xmlns='http://www.w3.org/2000/svg'

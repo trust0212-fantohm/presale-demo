@@ -16,9 +16,7 @@ export default function Homepage() {
   }, []);
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(
-      'EKJDzQGRTrGnv5nHxYmxSthRg3ucTJKszP3ZDkGGDWUo',
-    );
+    navigator.clipboard.writeText('0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232');
     alert('Address copied to clip board');
   };
 
@@ -56,7 +54,7 @@ export default function Homepage() {
           backgroundImage: `url(/background/mobile/${random}.png)`,
         }}
       />
-      <PlayButton className='absolute right-8 top-5 z-20 sm:right-1/2 sm:translate-x-1/2' />
+      <PlayButton className='absolute right-8 top-5 z-20' />
       <Image
         src='/BWWLong.png'
         alt='BWW'
@@ -81,15 +79,16 @@ export default function Homepage() {
             </p>
           </div>
           <div
-            className='mx-auto flex w-fit cursor-pointer items-center rounded-full border-2 border-[#1A6AFF] bg-white p-2.5'
+            className='mx-auto flex w-fit cursor-pointer items-center rounded-full border-2 border-[#1A6AFF] bg-white p-2.5 pl-3'
+            title='Click to copy address'
             onClick={handleCopyAddress}
           >
             <Image
-              src='/solana-1.png'
+              src='/ethereum.png'
               alt='Solana'
-              width={39}
-              height={39}
-              className='md:h-[25px] md:w-[25px] sm:h-5 sm:w-5'
+              width={24}
+              height={40}
+              className='md:h-[25px] md:w-[15px] sm:h-5 sm:w-3'
             />
             <p
               className={cx(
@@ -97,10 +96,10 @@ export default function Homepage() {
                 workSans.className,
               )}
             >
-              EKJDzQGRTrGnv5nHxYmxSthRg3ucTJKszP3ZDkGGDWUo
+              0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
             </p>
             <p className='hidden pl-2.5 pr-5 text-[13px] font-medium sm:block'>
-              EKJDzQGRTrGnv5n...
+              0xBE20ed1dE3eE3...
             </p>
           </div>
         </div>
