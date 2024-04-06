@@ -74,7 +74,7 @@ export default function Homepage() {
                 workSans.className,
               )}
             >
-              Send <span className='text-[#1A6AFF] underline'>$ETH</span> here
+              Send <span className='text-[#1A6AFF] underline'>$ETH/BNB</span> here
               to join presale
             </p>
           </div>
