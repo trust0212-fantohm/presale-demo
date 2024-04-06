@@ -12,7 +12,7 @@ export default function Homepage() {
   const [random, setRandom] = useState<number>(-1);
 
   useEffect(() => {
-    setRandom(Math.floor(Math.random() * 12) + 1);
+    setRandom(Math.floor(Math.random() * 8) + 1);
   }, []);
 
   const handleCopyAddress = () => {
