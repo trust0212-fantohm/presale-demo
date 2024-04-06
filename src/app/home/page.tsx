@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Icon } from '@iconify/react';
 import cx from 'classnames';
 import PlayButton from '@/components/PlayButton';
 import { settings } from '@/config/background';
@@ -10,14 +11,23 @@ import { workSans } from '../fonts';
 
 export default function Homepage() {
   const [random, setRandom] = useState<number>(-1);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
   useEffect(() => {
     setRandom(Math.floor(Math.random() * 8) + 1);
   }, []);
 
+  useEffect(() => {
+    if (isCopied) {
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000);
+    }
+  }, [isCopied]);
+
   const handleCopyAddress = () => {
     navigator.clipboard.writeText('0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232');
-    alert('Address copied to clip board');
+    setIsCopied(true);
   };
 
   return random === -1 ? (
@@ -74,12 +84,12 @@ export default function Homepage() {
                 workSans.className,
               )}
             >
-              Send <span className='text-[#1A6AFF] underline'>$ETH/BNB</span> here
-              to join presale
+              Send <span className='text-[#1A6AFF] underline'>$ETH/BNB</span>{' '}
+              here to join presale
             </p>
           </div>
           <div
-            className='mx-auto flex w-fit cursor-pointer items-center rounded-full border-2 border-[#1A6AFF] bg-white p-2.5 pl-3'
+            className='mx-auto flex w-fit cursor-pointer items-center gap-3 rounded-full border-2 border-[#1A6AFF] bg-white py-2.5 pl-3 pr-5'
             title='Click to copy address'
             onClick={handleCopyAddress}
           >
@@ -92,15 +102,24 @@ export default function Homepage() {
             />
             <p
               className={cx(
-                'px-5 text-xl font-medium md:pl-2.5 md:text-[15px] sm:hidden',
+                'text-xl font-medium md:text-[15px] sm:hidden',
                 workSans.className,
               )}
             >
               0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
             </p>
-            <p className='hidden pl-2.5 pr-5 text-[13px] font-medium sm:block'>
+            <p className='hidden text-[13px] font-medium sm:block'>
               0xBE20ed1dE3eE3...
             </p>
+            {!isCopied ? (
+              <Icon
+                icon='icon-park-outline:copy'
+                className='text-xl sm:text-base'
+                onClick={handleCopyAddress}
+              />
+            ) : (
+              <Icon icon='charm:tick' className='text-xl sm:text-base' />
+            )}
           </div>
         </div>
         <div className='space-y-[30px] sm:space-y-[15px]'>
