@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 import cx from 'classnames';
-import PlayButton from '@/components/PlayButton';
+// import PlayButton from '@/components/PlayButton';
 import { settings } from '@/config/background';
 import { workSans } from '../fonts';
 
@@ -64,7 +64,7 @@ export default function Homepage() {
           backgroundImage: `url(/background/mobile/${random}.png)`,
         }}
       />
-      <PlayButton className='absolute right-8 top-5 z-20' />
+      {/* <PlayButton className='absolute right-8 top-5 z-20' /> */}
       <Image
         src='/BWWLong.png'
         alt='BWW'

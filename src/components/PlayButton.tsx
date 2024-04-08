@@ -3,48 +3,49 @@ import cx from 'classnames';
 
 interface Props {
   className?: string;
+  autoPlay?: boolean;
 }
 
-const PlayButton: React.FC<Props> = ({ className }) => {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+const PlayButton: React.FC<Props> = ({ className, autoPlay = true }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
   useEffect(() => {
-    setAudio(new Audio('/music.mp3'));
+    const audio = document.getElementById('audio') as HTMLAudioElement;
+
+    if (!audio) return;
+
+    if (audio.paused) {
+      setIsPlaying(false);
+    }
+
+    audio.addEventListener('playing', () => setIsPlaying(true));
+    audio.addEventListener('pause', () => setIsPlaying(false));
+
+    return () => {
+      audio.removeEventListener('playing', () => {});
+      audio.removeEventListener('pause', () => {});
+    };
   }, []);
 
-  useEffect(() => {
+  const handleClick = () => {
+    const audio = document.getElementById('audio') as HTMLAudioElement;
+
     if (!audio) return;
 
-    audio.addEventListener(
-      'ended',
-      function () {
-        this.currentTime = 0;
-        this.play();
-      },
-      false,
-    );
-
-    return audio.removeEventListener('ended', function () {}, false);
-  }, [audio]);
-
-  useEffect(() => {
-    if (!audio) return;
     if (isPlaying) {
-      audio.play();
-    } else {
       audio.pause();
+    } else {
+      audio.play();
     }
-  }, [isPlaying, audio]);
+
+    setIsPlaying((prev) => !prev);
+  };
 
   return (
     <button
       className={cx('flex items-center gap-5', className)}
-      onClick={() => setIsPlaying((prev) => !prev)}
+      onClick={handleClick}
     >
-      {/* <p className='font-norwester text-3xl text-[#1A6AFF] sm:text-xl'>
-        PLAY THEME SONG
-      </p> */}
       {!isPlaying ? (
         <svg
           xmlns='http://www.w3.org/2000/svg'
