@@ -109,7 +109,7 @@ export default function Homepage() {
               0xBE20ed1dE3eE3d4E43B0fF783e51F92D6885D232
             </p>
             <p className='hidden text-[13px] font-medium sm:block'>
-              0xBE20ed1dE3eE3...
+              0xBE20ed1dE...D232
             </p>
             {!isCopied ? (
               <Icon
