@@ -2,15 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import PlayButton from '@/components/PlayButton';
+
+// import PlayButton from '@/components/PlayButton';
 
 export default function Home() {
+  const handleEnter = () => {
+    const audio = document.getElementById('audio') as HTMLAudioElement;
+
+    if (audio.paused) audio.play();
+  };
+
   return (
     <main
       className='relative flex h-screen w-full flex-col items-center justify-end gap-12 overflow-hidden bg-cover bg-center p-8 sm:gap-5 sm:p-5'
       style={{ backgroundImage: 'url(/background.png)' }}
     >
-      <PlayButton className='absolute right-8 top-5 z-20' autoPlay={false} />
+      {/* <PlayButton className='absolute right-8 top-5 z-20' autoPlay={false} /> */}
       <Image
         src='/multiline-logo.png'
         alt='Multiline Logo'
@@ -21,6 +28,7 @@ export default function Home() {
       <Link
         href='/home'
         className='relative z-10 rounded border-4 border-[#890A00] bg-gradient-to-t from-[#2E87C5] to-[#026FB8] p-[15px_30px] text-center text-[50px] leading-[1.2] text-white shadow-[0px_0px_30px_#890A0033] md:text-[40px] sm:text-3xl'
+        onClick={handleEnter}
       >
         ENTER PRESALE
       </Link>

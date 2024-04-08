@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Numans, Roboto, Rubik } from 'next/font/google';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -14,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        {children}
+        <audio loop autoPlay src='/music.mp3' id='audio' className='hidden'></audio>
+      </body>
     </html>
   );
 }
