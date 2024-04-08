@@ -3,11 +3,12 @@ import cx from 'classnames';
 
 interface Props {
   className?: string;
+  autoPlay?: boolean;
 }
 
-const PlayButton: React.FC<Props> = ({ className }) => {
+const PlayButton: React.FC<Props> = ({ className, autoPlay = true }) => {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
 
   useEffect(() => {
     setAudio(new Audio('/music.mp3'));
