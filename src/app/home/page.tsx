@@ -65,18 +65,28 @@ export default function Homepage() {
         }}
       />
       {/* <PlayButton className='absolute right-8 top-5 z-20' /> */}
-      <Image
-        src='/BWWLong.png'
-        alt='BWW'
-        width={821}
-        height={574}
-        className='relative z-10 -mt-20 md:-mt-16 md:h-[372px] md:w-[526px] sm:-mt-4 sm:h-[220px] sm:w-[310px]'
-      />
-      <div className='relative z-10 -mt-48 w-fit space-y-[30px] rounded border-4 border-black bg-[#EED0AECC] p-5 shadow-[0px_0px_10px_#0003] md:-mt-28 md:space-y-5 sm:-mt-16 sm:w-[278px] sm:space-y-[15px]'>
+      <div className='relative'>
+        <Image
+          src='/BWWLong.png'
+          alt='BWW'
+          width={821}
+          height={574}
+          className='relative z-10 -mt-20 md:-mt-16 md:h-[372px] md:w-[526px] sm:-mt-4 sm:h-[220px] sm:w-[310px]'
+        />
+        <Image
+          src='/RuggedText.png'
+          alt='Rugged Text'
+          width={436}
+          height={34}
+          className='absolute bottom-52 left-1/2 z-20 -translate-x-1/2 animate-pulse cursor-pointer md:bottom-32 md:w-96 sm:bottom-[72px] sm:w-64'
+          onClick={() => setRandom(Math.floor(Math.random() * 8) + 1)}
+        />
+      </div>
+      <div className='relative z-10 -mt-44 w-fit space-y-[30px] rounded border-4 border-black bg-[#EED0AECC] p-5 shadow-[0px_0px_10px_#0003] md:-mt-20 md:space-y-5 sm:-mt-12 sm:w-[278px] sm:space-y-[15px]'>
         <div className='space-y-5'>
           <div className='sm:space-y-2.5'>
             <p className='pl-5 text-center font-norwester text-[70px] leading-[1.2] text-[#030303] md:text-[50px] sm:mx-auto sm:max-w-[168px] sm:pl-0 sm:text-3xl'>
-              GET RUGGED IN A NEW WAY
+              THE PRESALE IS NOW LIVE
             </p>
             <p
               className={cx(
@@ -85,7 +95,7 @@ export default function Homepage() {
               )}
             >
               Send <span className='text-[#1A6AFF] underline'>$ETH/BNB</span>{' '}
-              here to join presale
+              here to join
             </p>
           </div>
           <div
