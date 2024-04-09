@@ -78,7 +78,7 @@ export default function Homepage() {
           alt='Rugged Text'
           width={436}
           height={34}
-          className='animate-text absolute bottom-52 left-[calc(50%-218px)] z-20 origin-center -translate-x-1/2 cursor-pointer md:bottom-32 md:left-[calc(50%-192px)] md:w-96 sm:bottom-[72px] sm:left-[calc(50%-128px)] sm:w-64'
+          className='animate-text absolute bottom-52 px-3 py-1 left-[calc(50%-218px)] bg-[#EED0AECC] z-20 origin-center -translate-x-1/2 cursor-pointer rounded-full border-2 border-[#1A6AFF] md:bottom-32 md:left-[calc(50%-192px)] md:w-96 sm:bottom-[72px] sm:left-[calc(50%-128px)] sm:w-64'
           onClick={() => setRandom(Math.floor(Math.random() * 8) + 1)}
         />
       </div>
