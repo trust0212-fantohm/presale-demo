@@ -2,14 +2,33 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 // import PlayButton from '@/components/PlayButton';
 
 export default function Home() {
+  const router = useRouter();
+
   const handleEnter = () => {
     const audio = document.getElementById('audio') as HTMLAudioElement;
 
     if (audio.paused) audio.play();
+
+    const element = document.getElementById('main');
+    const left = document.getElementById('left');
+    const right = document.getElementById('right');
+
+    element?.classList.add('blur-[200px]');
+
+    left?.classList.add('!left-1/2');
+    right?.classList.add('!right-1/2');
+
+    setTimeout(() => {
+      router.push('/home');
+      left?.classList.remove('!left-1/2');
+      right?.classList.remove('!right-1/2');
+      element?.classList.remove('blur-[200px]');
+    }, 1000);
   };
 
   return (
@@ -25,13 +44,12 @@ export default function Home() {
         height={540}
         className='absolute left-1/2 top-0 -translate-x-1/2'
       />
-      <Link
-        href='/home'
+      <button
         className='relative z-10 rounded border-4 border-[#890A00] bg-gradient-to-t from-[#2E87C5] to-[#026FB8] p-[15px_30px] text-center text-[50px] leading-[1.2] text-white shadow-[0px_0px_30px_#890A0033] md:text-[40px] sm:text-3xl'
         onClick={handleEnter}
       >
         ENTER PRESALE
-      </Link>
+      </button>
       <div className='relative z-10 flex flex-col items-center'>
         <Image src='/hero.png' alt='Hero' width={344} height={172} />
         <div className='space-y-[30px] rounded border-4 border-[#890A00] bg-gradient-to-t from-[#2E87C5] to-[#026FB8] p-[15px] shadow-[0px_0px_30px_#890A0033]'>

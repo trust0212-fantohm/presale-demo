@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -14,8 +16,28 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        {children}
-        <audio loop autoPlay src='/music.mp3' id='audio' className='hidden'></audio>
+        <div className='transition-all duration-700' id='main'>
+          {children}
+          <audio
+            loop
+            autoPlay
+            src='/music.mp3'
+            id='audio'
+            className='hidden'
+          ></audio>
+        </div>
+        <img
+          src='/left.png'
+          alt='Left'
+          className='fixed left-0 top-1/2 z-50 h-[600px] -translate-x-full -translate-y-1/2 transition-all duration-700'
+          id='left'
+        />
+        <img
+          src='/right.png'
+          alt='Left'
+          className='fixed right-0 top-1/2 z-50 h-[600px] -translate-y-1/2 translate-x-full transition-all duration-700'
+          id='right'
+        />
       </body>
     </html>
   );
