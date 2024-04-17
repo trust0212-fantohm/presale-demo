@@ -29,13 +29,13 @@ export default function RootLayout({
         <img
           src='/left.png'
           alt='Left'
-          className='fixed left-0 top-1/2 z-50 h-[600px] -translate-x-full -translate-y-1/2 transition-all duration-700'
+          className='fixed left-0 top-1/2 z-50 h-screen w-1/2 -translate-x-full -translate-y-1/2 transition-all duration-700'
           id='left'
         />
         <img
           src='/right.png'
           alt='Left'
-          className='fixed right-0 top-1/2 z-50 h-[600px] -translate-y-1/2 translate-x-full transition-all duration-700'
+          className='fixed right-0 top-1/2 z-50 h-screen w-1/2 -translate-y-1/2 translate-x-full transition-all duration-700'
           id='right'
         />
       </body>
